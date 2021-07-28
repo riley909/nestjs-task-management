@@ -28,7 +28,6 @@ export class TasksService {
         return false;
       });
     }
-
     return tasks;
   }
 
