@@ -26,6 +26,14 @@ export class TasksRepository extends Repository<Task> {
     return tasks;
   }
 
+  async getTaskById(id: string): Promise<Task> {
+    const found = await this.findOne(id);
+    if (!found) {
+      throw new NotFoundException(`Task with ID "${id}" not found`);
+    }
+    return found;
+  }
+
   async createTask(createTaskDto: CreateTaskDto): Promise<Task> {
     const { title, description } = createTaskDto;
 
