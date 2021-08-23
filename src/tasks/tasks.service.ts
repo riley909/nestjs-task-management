@@ -18,8 +18,8 @@ export class TasksService {
     return this.tasksRepository.getTasks(filterDto, user);
   }
 
-  getTaskById(id: string): Promise<Task> {
-    return this.tasksRepository.getTaskById(id);
+  getTaskById(id: string, user: User): Promise<Task> {
+    return this.tasksRepository.getTaskById(id, user);
   }
 
   createTask(createTaskDto: CreateTaskDto, user: User): Promise<Task> {
@@ -30,7 +30,7 @@ export class TasksService {
     return this.tasksRepository.deleteTask(id);
   }
 
-  updateTaskStatus(id: string, status: TaskStatus) {
-    return this.tasksRepository.updateTaskStatus(id, status);
+  updateTaskStatus(id: string, status: TaskStatus, user: User) {
+    return this.tasksRepository.updateTaskStatus(id, status, user);
   }
 }
